@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login — AGP Children's Ministry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='attendance.css') }}">
+</head>
+<body>
+    <main class="login-main">
+        <h1>Welcome</h1>
+        <h4 class="login-subtitle">AGP Children's Ministry Attendance Tracker</h4>
+
+        {% if error %}
+        <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <label>Password
+                <input type="password" name="password" placeholder="Enter password" required autofocus>
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+</body>
+</html>

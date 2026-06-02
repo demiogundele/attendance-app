@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Roster</h1>
+
+<form method="POST">
+    <input type="text" name="name" placeholder="Child's name" required>
+    <select name="class_group" required>
+        <option value="" disabled selected>Select a class</option>
+        {% for c in classes %}
+        <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Add Child</button>
+</form>
+
+<form method="POST" action="/delete_all"
+      onsubmit="return confirm('Delete every child from the roster? This cannot be undone.')">
+    <button type="submit" style="margin-top: 24px; background-color: #e84855; color: white;"> 
+        Erase Roster
+    </button>
+</form>
+
+{% for c in classes %}
+<div style="margin-top: 36px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 style="font-size: 1.1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em;">{{ c }}</h2>
+        <form method="POST" action="/delete_class/{{ c }}"
+              onsubmit="return confirm('Delete all children in {{ c }}?')">
+            <button type="submit" style="background-color: #e84855; color: white; padding: 8px 14px; font-size: 12px;">
+            Erase Class
+            </button>
+        </form>
+    </div>
+
+    <ul>
+        {% for kid in kids if kid.class_group == c %}
+        <li>
+            <div id="view-{{ kid.id }}" style="display: flex; justify-content: space-between; align-items: center;">
+                <span>{{ kid.name }}</span>
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="showEdit({{ kid.id }})"
+                            style="background-color: #3185FC; color: white; padding: 8px 14px;
+                                   font-size: 12px; font-weight: 900; border: none;
+                                   border-radius: 2px; text-transform: uppercase;
+                                   letter-spacing: 0.08em; cursor: pointer;">
+                        Edit
+                    </button>
+                    <form method="POST" action="/delete_child/{{ kid.id }}"
+                          onsubmit="return confirm('Remove {{ kid.name }}?')">
+                        <button type="submit" style="background-color: #e84855; color: white; padding: 8px 14px; font-size: 12px;">
+                            Remove
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="edit-{{ kid.id }}" style="display: none; margin-top: 10px;">
+                <form method="POST" action="/edit_child/{{ kid.id }}" style="display: flex; flex-direction: column; gap: 10px;">
+                    <input type="text" name="name" value="{{ kid.name }}" required>
+                    <select name="class_group" required>
+                        {% for c2 in classes %}
+                        <option value="{{ c2 }}" {% if c2 == kid.class_group %}selected{% endif %}>{{ c2 }}</option>
+                        {% endfor %}
+                    </select>
+                    <div style="display: flex; gap: 8px;">
+                        <button type="submit"
+                                style="background-color: #3185FC; color: white; padding: 10px 16px;
+                                       font-size: 12px; font-weight: 900; flex: 1;">
+                            Save
+                        </button>
+                        <button type="button" onclick="hideEdit({{ kid.id }})"
+                                style="background-color: #888; color: white; padding: 10px 16px;
+                                       font-size: 12px; font-weight: 900; flex: 1; border: none;
+                                       border-radius: 2px; cursor: pointer;">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+<script>
+    function showEdit(id) {
+        document.getElementById('view-' + id).style.display = 'none';
+        document.getElementById('edit-' + id).style.display = 'block';
+    }
+
+    function hideEdit(id) {
+        document.getElementById('edit-' + id).style.display = 'none';
+        document.getElementById('view-' + id).style.display = 'flex';
+    }
+</script>
+
+
+{% endblock %}

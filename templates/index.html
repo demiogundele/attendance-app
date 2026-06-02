@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Take Attendance</h1>
+<form method="POST" action="/submit_attendance">
+    <label>Date: <input type="date" name="session_date" value="{{ today }}" required></label>
+    <input type="text" id="search" placeholder="Search for a child..." oninput="filterChildren()">
+    
+    {% for c in classes %}
+    <div class="class-section" id="section-{{ loop.index }}">
+        <h2 style="font-size: 1.1rem; font-weight: 900; text-transform: uppercase;
+                   letter-spacing: 0.08em; margin: 24px 0 10px; color: #EACE09;">{{ c }}</h2>
+        
+        <ul>
+            {% for kid in kids if kid.class_group == c %}
+            <li class="kid-item" data-name="{{ kid.name | lower }}">
+                <label>
+                    <input type="checkbox" name="present" value="{{ kid.id}}">
+                    {{ kid.name }}
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    <button type="submit">Save Attendance</button>
+</form>
+
+<script>
+    function filterChildren() {
+        const query = document.getElementById('search').value.toLowerCase();
+        const items = document.querySelectorAll('.kid-item');
+        const sections = document.querySelectorAll('.class-section');
+
+        items.forEach(item => {
+            const name = item.getAttribute('data-name');
+            item.style.display = name.includes(query) ? '' : 'none';
+        }); 
+
+        sections.forEach(section => {
+            const visibleItems = section.querySelectorAll('.kid-item[style=""],.kid-item:not([style])');
+            const anyVisible = Array.from(visibleItems).some(el => el.style.display !== 'none');
+            section.style.display = anyVisible ? '' : 'none';
+        });
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,417 @@
+@font-face {
+    font-family: 'Talina Demo';
+    src: url('fonts/talina-demo.otf') format('opentype');
+    font-weight: 50;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sunday Shine';
+    src: url('fonts/sunday-shine.otf') format('opentype');
+    font-weight: 50;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Milkyway Demo';
+    src: url('fonts/milkyway-demo.ttf') format('truetype');
+    font-weight: 50;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Talina Demo', 'Segoe UI', sans-serif;
+    background-color: #0f1117;
+    color: #e0e0e0;
+    font-size: 16px;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #0a0c12;
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #1e2235;
+}
+
+nav a {
+    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    color: #EACE09;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 2px solid #EACE09;
+    border-radius: 20px;
+    transition: background 0.15s, color 0.15s;
+}
+
+nav a:hover {
+    background-color: #EACE09;
+    color: #0a0c12;
+}
+
+nav a[href="/logout"] {
+    border-color: #c9607a;
+    color: #c9607a;
+    margin-left: auto;
+}
+
+nav a[href="/logout"]:hover {
+    background-color: #c9607a;
+    color: white;
+}
+
+main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+h1 {
+    font-family: 'Sunday Shine', cursive;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+h3 {
+    color: #EACE09;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a0a8c0;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="password"] {
+    font-family: inherit;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #1e2235;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #1a1d2e;
+    color: #ffffff;
+    margin-top: 6px;
+    display: block;
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #c9607a;
+    box-shadow: 0 0 0 3px rgba(201, 96, 122, 0.15);
+}
+
+button[type="submit"] {
+    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    background-color: #c9607a;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.15s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    background-color: #b04f68;
+    transform: translateY(-1px);
+}
+
+select {
+    font-family: inherit;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #1e2235;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #1a1d2e;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #c9607a;
+    box-shadow: 0 0 0 3px rgba(201, 96, 122, 0.15);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+ul li {
+    background: #1a1d2e;
+    border: 1px solid #1e2235;
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.15s;
+}
+
+ul li:hover {
+    border-color: #c9607a;
+}
+
+ul li label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #e0e0e0;
+}
+
+input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: #c9607a;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    background: #1a1d2e;
+    border: 1px solid #1e2235;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: #12152a;
+    color: #EACE09;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #1e2235;
+    font-size: 15px;
+    font-weight: 500;
+    color: #e0e0e0;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #12152a;
+}
+
+.big-btn {
+    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    display: block;
+    background-color: #1a1d2e;
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 20px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #1e2235;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.big-btn:hover {
+    border-color: #c9607a;
+    background-color: #c9607a;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* INLINE STYLES FROM HTML FILES */
+
+/* roster.html class headings */
+.date-heading {
+    background-color: #EACE09;
+    color: #0f1117;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* history.html export button */
+a[href*="export_csv"] {
+    display: inline-block;
+    margin-bottom: 16px;
+    background-color: #3185FC;
+    color: white;
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    transition: background 0.15s;
+}
+
+a[href*="export_csv"]:hover {
+    background-color: #2070e0;
+}
+
+/* roster.html edit/remove buttons */
+button[onclick*="showEdit"],
+button[onclick*="hideEdit"] {
+    background-color: #3185FC;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    transition: background 0.15s;
+}
+
+button[onclick*="showEdit"]:hover {
+    background-color: #2070e0;
+}
+
+/* roster/history delete buttons */
+button[style*="e84855"],
+button[style*="#e84855"] {
+    background-color: transparent !important;
+    color: #c9607a !important;
+    border: 1px solid #c9607a !important;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    transition: background 0.15s;
+}
+
+button[style*="e84855"]:hover,
+button[style*="#e84855"]:hover {
+    background-color: #c9607a !important;
+    color: white !important;
+}
+
+/* cancel button */
+button[onclick*="hideEdit"] {
+    background-color: #2a2d3e !important;
+    color: #a0a8c0 !important;
+    border: none !important;
+}
+
+button[onclick*="hideEdit"]:hover {
+    background-color: #3a3d4e !important;
+}
+
+/* login page subtitle */
+p[style*="318FC"],
+p[style*="3185FC"] {
+    color: #EACE09 !important;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 32px;
+}
+
+/* login error */
+p[style*="e84855"] {
+    background-color: #2a1a1e !important;
+    color: #c9607a !important;
+    border: 1px solid #c9607a;
+    border-radius: 10px;
+}
+
+/* empty history message */
+p[style*="italic"] {
+    color: #a0a8c0 !important;
+}
+
+/* history margin blocks */
+div[style*="margin-bottom: 48px"] {
+    margin-bottom: 48px;
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 28px 16px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    td, th {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+}
