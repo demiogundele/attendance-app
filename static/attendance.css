@@ -1,26 +1,3 @@
-@font-face {
-    font-family: 'Talina Demo';
-    src: url('fonts/talina-demo.otf') format('opentype');
-    font-weight: 50;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Sunday Shine';
-    src: url('fonts/sunday-shine.otf') format('opentype');
-    font-weight: 50;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Milkyway Demo';
-    src: url('fonts/milkyway-demo.ttf') format('truetype');
-    font-weight: 50;
-    font-style: normal;
-    font-display: swap;
-}
 
 * {
     box-sizing: border-box;
@@ -29,7 +6,7 @@
 }
 
 body {
-    font-family: 'Talina Demo', 'Segoe UI', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     background-color: #0f1117;
     color: #e0e0e0;
     font-size: 16px;
@@ -48,7 +25,7 @@ nav {
 }
 
 nav a {
-    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     color: #EACE09;
     text-decoration: none;
     font-weight: 900;
@@ -84,7 +61,7 @@ main {
 }
 
 h1 {
-    font-family: 'Sunday Shine', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 900;
     line-height: 1.05;
@@ -145,7 +122,7 @@ input[type="password"]:focus {
 }
 
 button[type="submit"] {
-    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     background-color: #c9607a;
     color: white;
     border: none;
@@ -262,7 +239,7 @@ tr:hover td {
 }
 
 .big-btn {
-    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     display: block;
     background-color: #1a1d2e;
     color: #e0e0e0;
@@ -309,7 +286,7 @@ a[href*="export_csv"] {
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 8px;
-    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     transition: background 0.15s;
 }
 
@@ -330,7 +307,7 @@ button[onclick*="hideEdit"] {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     transition: background 0.15s;
 }
 
@@ -351,7 +328,7 @@ button[style*="#e84855"] {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    font-family: 'Milkyway Demo', 'Talina Demo', sans-serif;
+    font-family: 'Inter', 'Playfair Display', sans-serif;
     transition: background 0.15s;
 }
 
