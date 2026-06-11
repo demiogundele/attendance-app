@@ -10,14 +10,33 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/attendance">Take Attendance</a>
-        <a href="/roster">Manage Roster</a>
-        <a href="/history">Attendance History</a>
-        <a href="/logout" class="nav-logout">Log Out</a>
+        <div class="nav-brand">AGP Children's Ministry</div>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation menu">☰</button>
+        <div class="nav-links" id="nav-links">
+            <a href="/">Home</a>
+            <a href="/attendance">Take Attendance</a>
+            <a href="/roster">Manage Roster</a>
+            <a href="/history">Attendance History</a>
+            <a href="/logout" class="nav-logout">Log Out</a>
+        </div>
     </nav>
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <script>
+        function toggleNav() {
+            const links = document.getElementById('nav-links');
+            links.classList.toggle('open');
+        }
+
+        // Close nav when a link is clicked (for mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('open');
+            });
+        });
+
+    </script>
 </body>
 </html>
