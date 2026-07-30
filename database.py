@@ -1,6 +1,7 @@
 import sqlite3
 
-DB = 'attendance.db'
+import os 
+DB = os.path.join(os.path.dirname(__file__), 'attendance.db')
 
 def get_connection():
     conn = sqlite3.connect(DB)
