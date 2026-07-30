@@ -10,8 +10,3 @@ A web app built with Flask and SQLite to track children's church attendance acro
 1. To install: 'pip install flask'
 2. Run the app: 'python app.py'
 3. Open: 'https://agpattendance.onrender.com/' in your browser
-## Classes the Website Tracks
-- God's Heritage (0-6)
-- Chosen Generatin (6-10)
-- Royal Preteens (11-13)
-- Teen Church (13-18)
