@@ -3,6 +3,7 @@ from database import get_all_children, add_child, init_db, save_attendance, get_
 from datetime import date 
 import csv
 import io 
+import os
 
 CLASSES = [
     "God's Heritage (0-6)", 
@@ -133,4 +134,5 @@ def edit_child(child_id):
     return render_template("edit_child.html", kid=kid, classes=CLASSES)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    debug_mode = os.getenv("FLASK_DEBUG", "").lower() in ("1", "true", "yes", "on")
+    app.run(debug=debug_mode)
